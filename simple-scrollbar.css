@@ -12,11 +12,9 @@
   width: calc(100% + 10000px);
   height: 100%;
   position: relative;
-  z-index: 1;
 }
 
 .ss-content {
-  height: 100%;
   padding: 0 0 0 0;
   position: relative;
   box-sizing: border-box;
