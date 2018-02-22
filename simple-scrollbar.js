@@ -39,10 +39,8 @@
   }
 
   // Constructor
-  function SimpleScrollbar(el) {
-    this.target = el;
-
-    this.direction = w.getComputedStyle(this.target).direction;
+  function SimpleScrollbar(container) {
+    var direction = w.getComputedStyle(container).direction;
 
     this.bar = '<div class="ss-scroll">';
 
@@ -54,13 +52,13 @@
 
     this.wrapper.appendChild(this.content);
 
-    while (this.target.firstChild) {
-      this.content.appendChild(this.target.firstChild);
+    while (container.firstChild) {
+      this.content.appendChild(container.firstChild);
     }
-    this.target.appendChild(this.wrapper);
+    container.appendChild(this.wrapper);
 
-    this.target.insertAdjacentHTML('beforeend', this.bar);
-    this.bar = this.target.lastChild;
+    container.insertAdjacentHTML('beforeend', this.bar);
+    this.bar = container.lastChild;
 
     dragDealer(this.bar, this);
 
@@ -71,16 +69,12 @@
     this.wrapper.addEventListener('scroll', this.updateScrollBarVerticalPosition.bind(this));
     this.updateScrollBarVerticalPosition();
 
-    if (this.direction === 'rtl') {
-      this.target.classList.add('ss-rtl');
-    } else {
-      this.target.classList.add('ss-ltr');
-    }
-    this.target.classList.add('ss-container');
+    container.classList.add('ss-container');
+    container.classList.add(direction === 'rtl' ? 'ss-rtl' : 'ss-ltr');
 
-    var css = w.getComputedStyle(el);
+    var css = w.getComputedStyle(container);
   	if (css['height'] === '0px' && css['max-height'] !== '0px') {
-    	el.style.height = css['max-height'];
+    	container.style.height = css['max-height'];
     }
   }
 
