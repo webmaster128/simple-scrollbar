@@ -67,11 +67,11 @@
     this.bar = this.target.lastChild;
 
     dragDealer(this.bar, this);
-    this.moveBar();
 
-    w.addEventListener('resize', this.moveBar.bind(this));
-    this.content.addEventListener('scroll', this.moveBar.bind(this));
-    this.content.addEventListener('mouseenter', this.moveBar.bind(this));
+    w.addEventListener('resize', this.updateScrollBar.bind(this));
+    this.content.addEventListener('scroll', this.updateScrollBar.bind(this));
+    this.content.addEventListener('mouseenter', this.updateScrollBar.bind(this));
+    this.updateScrollBar();
 
     this.target.classList.add('ss-container');
 
@@ -82,7 +82,7 @@
   }
 
   SimpleScrollbar.prototype = {
-    moveBar: function(e) {
+    updateScrollBar: function(e) {
       var _this = this;
 
       var totalHeight = _this.content.scrollHeight;
