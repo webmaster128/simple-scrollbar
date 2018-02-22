@@ -47,7 +47,7 @@
     this.bar = '<div class="ss-scroll">';
 
     this.wrapper = d.createElement('div');
-    this.wrapper.setAttribute('class', 'ss-wrapper');
+    this.wrapper.setAttribute('class', 'ss-native-scrolling-wrapper');
 
     this.el = d.createElement('div');
     this.el.setAttribute('class', 'ss-content');
