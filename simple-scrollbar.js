@@ -56,7 +56,7 @@
     container.appendChild(this.wrapper);
 
     this.bar = d.createElement('div');
-    this.bar.setAttribute('class', 'ss-scroll');
+    this.bar.setAttribute('class', 'ss-scrollbar');
     container.appendChild(this.bar);
 
     dragDealer(this.bar, this);

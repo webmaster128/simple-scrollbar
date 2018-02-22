@@ -20,7 +20,7 @@
   box-sizing: border-box;
 }
 
-.ss-scroll {
+.ss-scrollbar {
   position: absolute;
   background: rgba(0, 0, 0, 0.1);
   width: 9px;
@@ -32,11 +32,11 @@
   transition: opacity 0.25s linear;
 }
 
-.ss-ltr .ss-scroll {
+.ss-ltr .ss-scrollbar {
   right: 0;
 }
 
-.ss-rtl .ss-scroll {
+.ss-rtl .ss-scrollbar {
   left: 0;
 }
 
@@ -44,8 +44,8 @@
   display: none;
 }
 
-.ss-container:hover .ss-scroll,
-.ss-container:active .ss-scroll {
+.ss-container:hover .ss-scrollbar,
+.ss-container:active .ss-scrollbar {
   opacity: 1;
 }
 
