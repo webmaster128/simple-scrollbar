@@ -40,6 +40,10 @@
 
   // Constructor
   function SimpleScrollbar(container) {
+    console.log(container.dataset)
+    this.scrollInsetsTop = parseInt(container.dataset.ssScrollInsetsTop, 10) || 0;
+    this.scrollInsetsBottom = parseInt(container.dataset.ssScrollInsetsBottom, 10) || 0;
+
     var direction = w.getComputedStyle(container).direction;
     container.classList.add(direction === 'rtl' ? 'ss-rtl' : 'ss-ltr');
 
@@ -112,9 +116,11 @@
       var _this = this;
 
       raf(function() {
-        var topMax = _this.wrapper.offsetHeight - _this.bar.offsetHeight
+        var topMin = _this.scrollInsetsTop;
+        var topMax = _this.wrapper.offsetHeight - _this.scrollInsetsBottom - _this.bar.offsetHeight;
         var posRelative = (_this.wrapper.scrollTop / (_this.wrapper.scrollHeight-_this.wrapper.offsetHeight));
-        _this.bar.style["top"] = topMax*posRelative + 'px';
+        var top = topMin + (topMax-topMin)*posRelative;
+        _this.bar.style["top"] = top + 'px';
       });
     }
   }
