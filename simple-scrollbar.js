@@ -26,7 +26,7 @@
       lastPageY = e.pageY;
 
       raf(function() {
-        context.content.scrollTop += delta / context.scrollRatio;
+        context.content.scrollTop += delta / context.contentVisibleRatio;
       });
     }
 
@@ -83,24 +83,25 @@
 
   SimpleScrollbar.prototype = {
     moveBar: function(e) {
-      var totalHeight = this.content.scrollHeight,
-          ownHeight = this.content.clientHeight,
-          _this = this;
+      var _this = this;
 
-      this.scrollRatio = ownHeight / totalHeight;
+      var totalHeight = _this.content.scrollHeight;
+      var containerHeight = _this.content.clientHeight;
+
+      _this.contentVisibleRatio = containerHeight / totalHeight;
 
       var isRtl = _this.direction === 'rtl';
-      var right = isRtl ?
-        (_this.target.clientWidth - _this.bar.clientWidth + 18) :
-        (_this.target.clientWidth - _this.bar.clientWidth) * -1;
+      var right = isRtl
+        ? (_this.target.clientWidth - _this.bar.clientWidth + 18)
+        : (_this.target.clientWidth - _this.bar.clientWidth) * -1;
 
       raf(function() {
         // Hide scrollbar if no scrolling is possible
-        if(_this.scrollRatio >= 1) {
+        if(_this.contentVisibleRatio >= 1) {
           _this.bar.classList.add('ss-hidden')
         } else {
           _this.bar.classList.remove('ss-hidden')
-          _this.bar.style.cssText = 'height:' + Math.max(_this.scrollRatio * 100, 10) + '%; top:' + (_this.content.scrollTop / totalHeight ) * 100 + '%;right:' + right + 'px;';
+          _this.bar.style.cssText = 'height:' + Math.max(_this.contentVisibleRatio * 100, 10) + '%; top:' + (_this.content.scrollTop / totalHeight ) * 100 + '%;right:' + right + 'px;';
         }
       });
     }
