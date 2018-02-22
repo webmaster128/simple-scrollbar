@@ -26,7 +26,7 @@
       lastPageY = e.pageY;
 
       raf(function() {
-        context.content.scrollTop += delta / context.contentVisibleRatio;
+        context.wrapper.scrollTop += delta / context.contentVisibleRatio;
       });
     }
 
@@ -52,10 +52,6 @@
     this.content = d.createElement('div');
     this.content.setAttribute('class', 'ss-content');
 
-    if (this.direction === 'rtl') {
-      this.content.classList.add('rtl');
-    }
-
     this.wrapper.appendChild(this.content);
 
     while (this.target.firstChild) {
@@ -69,10 +65,15 @@
     dragDealer(this.bar, this);
 
     w.addEventListener('resize', this.updateScrollBar.bind(this));
-    this.content.addEventListener('scroll', this.updateScrollBar.bind(this));
-    this.content.addEventListener('mouseenter', this.updateScrollBar.bind(this));
+    this.wrapper.addEventListener('scroll', this.updateScrollBar.bind(this));
+    this.wrapper.addEventListener('mouseenter', this.updateScrollBar.bind(this));
     this.updateScrollBar();
 
+    if (this.direction === 'rtl') {
+      this.target.classList.add('ss-rtl');
+    } else {
+      this.target.classList.add('ss-ltr');
+    }
     this.target.classList.add('ss-container');
 
     var css = w.getComputedStyle(el);
@@ -85,15 +86,10 @@
     updateScrollBar: function(e) {
       var _this = this;
 
-      var totalHeight = _this.content.scrollHeight;
-      var containerHeight = _this.content.clientHeight;
+      var totalHeight = _this.wrapper.scrollHeight;
+      var containerHeight = _this.wrapper.clientHeight;
 
       _this.contentVisibleRatio = containerHeight / totalHeight;
-
-      var isRtl = _this.direction === 'rtl';
-      var right = isRtl
-        ? (_this.target.clientWidth - _this.bar.clientWidth + 18)
-        : (_this.target.clientWidth - _this.bar.clientWidth) * -1;
 
       raf(function() {
         // Hide scrollbar if no scrolling is possible
@@ -101,7 +97,7 @@
           _this.bar.classList.add('ss-hidden')
         } else {
           _this.bar.classList.remove('ss-hidden')
-          _this.bar.style.cssText = 'height:' + Math.max(_this.contentVisibleRatio * 100, 10) + '%; top:' + (_this.content.scrollTop / totalHeight ) * 100 + '%;right:' + right + 'px;';
+          _this.bar.style.cssText = 'height:' + Math.max(_this.contentVisibleRatio * 100, 10) + '%; top:' + (_this.wrapper.scrollTop / totalHeight ) * 100 + '%';
         }
       });
     }
