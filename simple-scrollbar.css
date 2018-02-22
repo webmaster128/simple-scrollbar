@@ -5,7 +5,11 @@
 
 .ss-native-scrolling-wrapper {
   overflow: auto;
-  width: calc(100% + 18px);
+  /*
+   * Add a lot of width to ensure scroll bar is pushed out of the way
+   * This constant is substracted from .ss-content width using Javascript
+   */
+  width: calc(100% + 10000px);
   height: 100%;
   position: relative;
   z-index: 1;

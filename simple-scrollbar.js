@@ -88,6 +88,8 @@
     updateLayout: function(e) {
       var _this = this;
 
+      _this.content.style.width = _this.wrapper.offsetWidth - 10000;
+
       var totalHeight = _this.wrapper.scrollHeight;
       var containerHeight = _this.wrapper.clientHeight;
 
