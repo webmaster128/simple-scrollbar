@@ -42,8 +42,6 @@
   function SimpleScrollbar(container) {
     var direction = w.getComputedStyle(container).direction;
 
-    this.bar = '<div class="ss-scroll">';
-
     this.wrapper = d.createElement('div');
     this.wrapper.setAttribute('class', 'ss-native-scrolling-wrapper');
 
@@ -57,8 +55,9 @@
     }
     container.appendChild(this.wrapper);
 
-    container.insertAdjacentHTML('beforeend', this.bar);
-    this.bar = container.lastChild;
+    this.bar = d.createElement('div');
+    this.bar.setAttribute('class', 'ss-scroll');
+    container.appendChild(this.bar);
 
     dragDealer(this.bar, this);
 
