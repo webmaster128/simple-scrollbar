@@ -39,7 +39,7 @@
   }
 
   // Constructor
-  function ss(el) {
+  function SimpleScrollbar(el) {
     this.target = el;
 
     this.direction = w.getComputedStyle(this.target).direction;
@@ -81,7 +81,7 @@
     }
   }
 
-  ss.prototype = {
+  SimpleScrollbar.prototype = {
     moveBar: function(e) {
       var totalHeight = this.el.scrollHeight,
           ownHeight = this.el.clientHeight,
@@ -115,8 +115,8 @@
   }
 
   d.addEventListener('DOMContentLoaded', initAll);
-  ss.initEl = initEl;
-  ss.initAll = initAll;
+  SimpleScrollbar.initEl = initEl;
+  SimpleScrollbar.initAll = initAll;
 
-  w.SimpleScrollbar = ss;
+  w.SimpleScrollbar = SimpleScrollbar;
 })(window, document);
