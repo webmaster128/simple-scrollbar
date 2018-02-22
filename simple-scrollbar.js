@@ -112,8 +112,9 @@
       var _this = this;
 
       raf(function() {
-        var pos = (_this.wrapper.scrollTop / _this.wrapper.scrollHeight) * 100;
-        _this.bar.style["top"] = pos + '%';
+        var topMax = _this.wrapper.offsetHeight - _this.bar.offsetHeight
+        var posRelative = (_this.wrapper.scrollTop / (_this.wrapper.scrollHeight-_this.wrapper.offsetHeight));
+        _this.bar.style["top"] = topMax*posRelative + 'px';
       });
     }
   }
