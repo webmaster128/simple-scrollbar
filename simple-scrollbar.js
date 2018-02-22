@@ -64,10 +64,12 @@
 
     dragDealer(this.bar, this);
 
-    w.addEventListener('resize', this.updateScrollBar.bind(this));
-    this.wrapper.addEventListener('scroll', this.updateScrollBar.bind(this));
-    this.wrapper.addEventListener('mouseenter', this.updateScrollBar.bind(this));
-    this.updateScrollBar();
+    w.addEventListener('resize', this.updateLayout.bind(this));
+    this.wrapper.addEventListener('mouseenter', this.updateLayout.bind(this));
+    this.updateLayout();
+
+    this.wrapper.addEventListener('scroll', this.updateScrollBarVerticalPosition.bind(this));
+    this.updateScrollBarVerticalPosition();
 
     if (this.direction === 'rtl') {
       this.target.classList.add('ss-rtl');
@@ -83,7 +85,7 @@
   }
 
   SimpleScrollbar.prototype = {
-    updateScrollBar: function(e) {
+    updateLayout: function(e) {
       var _this = this;
 
       var totalHeight = _this.wrapper.scrollHeight;
@@ -97,8 +99,16 @@
           _this.bar.classList.add('ss-hidden')
         } else {
           _this.bar.classList.remove('ss-hidden')
-          _this.bar.style.cssText = 'height:' + Math.max(_this.contentVisibleRatio * 100, 10) + '%; top:' + (_this.wrapper.scrollTop / totalHeight ) * 100 + '%';
+          _this.bar.style["height"] = Math.max(_this.contentVisibleRatio * 100, 10) + '%';
         }
+      });
+    },
+    updateScrollBarVerticalPosition: function(e) {
+      var _this = this;
+
+      raf(function() {
+        var pos = (_this.wrapper.scrollTop / _this.wrapper.scrollHeight) * 100;
+        _this.bar.style["top"] = pos + '%';
       });
     }
   }
