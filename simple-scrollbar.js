@@ -41,6 +41,7 @@
   // Constructor
   function SimpleScrollbar(container) {
     var direction = w.getComputedStyle(container).direction;
+    container.classList.add(direction === 'rtl' ? 'ss-rtl' : 'ss-ltr');
 
     this.wrapper = d.createElement('div');
     this.wrapper.setAttribute('class', 'ss-native-scrolling-wrapper');
@@ -67,9 +68,6 @@
 
     this.wrapper.addEventListener('scroll', this.updateScrollBarVerticalPosition.bind(this));
     this.updateScrollBarVerticalPosition();
-
-    container.classList.add('ss-container');
-    container.classList.add(direction === 'rtl' ? 'ss-rtl' : 'ss-ltr');
 
     var css = w.getComputedStyle(container);
   	if (css['height'] === '0px' && css['max-height'] !== '0px') {
@@ -109,7 +107,7 @@
   }
 
   function initAll() {
-    var nodes = d.querySelectorAll('*[ss-container]');
+    var nodes = d.querySelectorAll('.ss-container');
 
     for (var i = 0; i < nodes.length; i++) {
       initEl(nodes[i]);
