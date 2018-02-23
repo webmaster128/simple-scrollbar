@@ -135,5 +135,18 @@ export class ConversationComponent implements OnInit {
   ]
 }
 ```
+
+## Changelog
+
+**0.4.0**
+
+Major refactoring, including
+
+* new demo page
+* CommonJS and RequireJS exports
+* scroll view insets
+* Bottom aligned scroll content
+* rename initEl() -> init()
+
 ## Credits
 Inspired by yairEO's jQuery plugin ([fakescroll](https://github.com/yairEO/fakescroll))
