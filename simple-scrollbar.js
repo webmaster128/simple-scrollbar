@@ -43,6 +43,8 @@
     this.scrollInsetsTop = parseInt(container.dataset.ssScrollInsetsTop, 10) || 0;
     this.scrollInsetsBottom = parseInt(container.dataset.ssScrollInsetsBottom, 10) || 0;
 
+    container.classList.add("ss-container"); // may not be set in manual bindings
+
     var direction = w.getComputedStyle(container).direction;
     container.classList.add(direction === 'rtl' ? 'ss-rtl' : 'ss-ltr');
 
