@@ -20,7 +20,10 @@
 
   function initEl(el, config) {
     if (Object.prototype.hasOwnProperty.call(el, 'data-simple-scrollbar')) return;
-    Object.defineProperty(el, 'data-simple-scrollbar', new SimpleScrollbar(el, config));
+
+    var out = new SimpleScrollbar(el, config);
+    Object.defineProperty(el, 'data-simple-scrollbar', out);
+    return out;
   }
 
   // Mouse drag handler

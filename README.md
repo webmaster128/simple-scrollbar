@@ -55,22 +55,34 @@ If you want to manually turn your div in a SimpleScrollbar, you can use the `Sim
 The container must meet the following conditions:
 
 1. CSS height rule must be set. Setting `max-height` only is not sufficient.
+2. If no `.ss-scrolling` elements are used, the containers direct children
+   must not change after initialization. Changing content may be implemented
+   as grandchildren.
 
 ### Dynamically added content
-If you use some client Framework, like Angular, Aurelia, etc - or any library that includes DOMElements dynamically in your app, and you want to use the SimpleScrollbar `ss-container` attribute, you can use the `SimpleScrollbar.initAll` method, and it will turn all the elements with that attribute in a scrollable one for you.
 
-```Javascript
-var div = document.createElement('div');
-div.insertAdjacentHTML('afterbegin', '<span>One</span>');
-div.setAttribute('ss-container', true);
+If you changed the scrolling content or dimensions of the scrolling container
+dynamically, call `updateLayout()`:
 
-var otherDiv = div.cloneNode(true);
-otherDiv.querySelector('span').textContent = 'Two';
 
-document.body.appendChild(div);
-document.body.appendChild(otherDiv);
+```html
+<div class="myContainer">
+  <div class="myContent">
+    <p>Some text</p>
+  </div>
+</div>
 
-SimpleScrollbar.initAll();
+<script>
+  var el = document.querySelector('.myContainer');
+  var scrollbar = SimpleScrollbar.initEl(el);
+
+  setTimeout(function() {
+    var newContent = document.createElement('p');
+    newContent.innerHTML = "More text";
+    el.querySelector(".myContent").appendChild(newContent);
+    scrollbar.updateLayout();
+  }, 1000);
+</script>
 ```
 
 ## Credits

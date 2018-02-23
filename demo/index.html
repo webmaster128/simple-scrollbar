@@ -119,6 +119,29 @@ SimpleScrollbar.initEl(document.querySelector('#my-configured-container'), {
   <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</p>
 </section>
 
+<!-- changing content -->
+<section id="my-changing-content-container">
+  <div class="content-holder">
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</p>
+  </div>
+</section>
+<script>
+var element = document.querySelector('#my-changing-content-container');
+var scrollbar = SimpleScrollbar.initEl(element);
+
+function appendContent() {
+  console.log("Append!");
+  var newContent = document.createElement('p');
+  newContent.innerHTML = "More text";
+  element.querySelector(".content-holder").appendChild(newContent);
+  scrollbar.updateLayout();
+}
+
+for (var i = 1; i < 10; ++i) {
+  setTimeout(appendContent, i * 1000);
+}
+</script>
+
 <!-- bottom aligned scroll content (short) -->
 <section class="ss-container" data-ss-content-align="bottom">
   <div class="ss-scrolling">
