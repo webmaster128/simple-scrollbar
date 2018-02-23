@@ -28,12 +28,14 @@ If you want to make it works down to IE9, the only thing you need to do is to ad
 Add `direction: rtl;` to your `<div>`'s CSS, and SimpleScrollbar will detect the direction automatically.
 
 ## Usage
+
 ### Auto-binding
-Include the attribute `ss-container` in any `<div>` that you want to make scrollable, and the library will turn it for you
+
+Include the CSS class `ss-container` in any `<div>` that you want to make scrollable, and the library will turn it for you
 
 ```HTML
-<div ss-container>One</div>
-<div ss-container>
+<div class="ss-container">One</div>
+<div class="ss-container">
   <span>Two</span>
 </div>
 ```
