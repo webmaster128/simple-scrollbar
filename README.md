@@ -41,14 +41,15 @@ Include the CSS class `ss-container` in any `<div>` that you want to make scroll
 ```
 
 ### Manual binding
-If you want to manually turn your div in a SimpleScrollbar, you can use the `SimpleScrollbar.initEl` method.
+
+If you want to manually turn your div in a SimpleScrollbar, you can use the `SimpleScrollbar.init` method.
 
 ```HTML
 <div class="myClass"></div>
 
 <script>
   var el = document.querySelector('.myClass');
-  SimpleScrollbar.initEl(el);
+  SimpleScrollbar.init(el);
 </script>
 ```
 
@@ -76,7 +77,7 @@ dynamically, call `updateLayout()`:
 
 <script>
   var el = document.querySelector('.myContainer');
-  var scrollbar = SimpleScrollbar.initEl(el);
+  var scrollbar = SimpleScrollbar.init(el);
 
   setTimeout(function() {
     var newContent = document.createElement('p');

@@ -18,7 +18,7 @@
 
   var raf = w.requestAnimationFrame || w.setImmediate || function(c) { return setTimeout(c, 0); };
 
-  function initEl(el, config) {
+  function init(el, config) {
     if (Object.prototype.hasOwnProperty.call(el, 'data-simple-scrollbar')) return;
 
     var out = new SimpleScrollbar(el, config);
@@ -171,12 +171,12 @@
     var nodes = d.querySelectorAll('.ss-container');
 
     for (var i = 0; i < nodes.length; i++) {
-      initEl(nodes[i]);
+      init(nodes[i]);
     }
   }
 
   d.addEventListener('DOMContentLoaded', initAll);
-  SimpleScrollbar.initEl = initEl;
+  SimpleScrollbar.init = init;
   SimpleScrollbar.initAll = initAll;
 
   return SimpleScrollbar;
