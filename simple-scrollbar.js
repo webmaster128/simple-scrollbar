@@ -103,10 +103,10 @@
 
     w.addEventListener('resize', this.updateLayout.bind(this));
     this.wrapper.addEventListener('mouseenter', this.updateLayout.bind(this));
-    this.updateLayout();
 
     this.wrapper.addEventListener('scroll', this.updateScrollBarVerticalPosition.bind(this));
-    this.updateScrollBarVerticalPosition();
+
+    this.update();
   }
 
   SimpleScrollbar.prototype = {
@@ -156,6 +156,10 @@
         var top = topMin + (topMax-topMin)*posRelative;
         _this.bar.style["top"] = top + 'px';
       });
+    },
+    update: function() {
+      this.updateLayout();
+      this.updateScrollBarVerticalPosition();
     }
   }
 

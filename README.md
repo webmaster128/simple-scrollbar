@@ -65,7 +65,7 @@ The container must meet the following conditions:
 ### Dynamically added content
 
 If you changed the scrolling content or dimensions of the scrolling container
-dynamically, call `updateLayout()`:
+dynamically, call `update()`:
 
 
 ```html
@@ -83,7 +83,7 @@ dynamically, call `updateLayout()`:
     var newContent = document.createElement('p');
     newContent.innerHTML = "More text";
     el.querySelector(".myContent").appendChild(newContent);
-    scrollbar.updateLayout();
+    scrollbar.update();
   }, 1000);
 </script>
 ```
