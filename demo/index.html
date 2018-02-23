@@ -20,14 +20,14 @@
   section {
     float: left;
     background-color: white;
-    width: 200px;
-    height: 300px;
-    margin: 20px;
+    width: 150px;
+    height: 250px;
+    margin: 25px;
     position: relative;
     font-size: 16px;
     line-height: 1.4em;
   }
-  section.height-unset { height: auto; max-height: 300px; }
+  section.height-unset { height: auto; max-height: 250px; }
   section.justified { text-align: justify; }
   section.rightpadded { padding-right: 20px; }
   p:first-child { margin-top: 0; }
@@ -122,6 +122,11 @@ SimpleScrollbar.initEl(document.querySelector('#my-configured-container'), {
   <div class="ss-scrolling">
     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
   </div>
+</section>
+
+<!-- short, default alignment -->
+<section class="ss-container">
+  <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</p>
 </section>
 
 <!-- bottom aligned scroll content (short) -->
