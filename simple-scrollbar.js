@@ -1,4 +1,21 @@
-(function(w, d) {
+(function (root, factory) {
+  // Main setup block (see http://ifandelse.com/its-not-hard-making-your-library-support-amd-and-commonjs/)
+  //
+  // This block assumes that window and document magically exist,
+  // which might not be the case in every environment.
+  if(typeof define === "function" && define.amd) {
+    // AMD
+    define(function() { return factory(window, document) });
+  } else if(typeof module === "object" && module.exports) {
+    // CommonJS
+    module.exports = factory(window, document);
+  } else {
+    // Browser environment
+    root.SimpleScrollbar = factory(window, document);
+  }
+}(this, function(w, d) {
+  // factory block
+
   var raf = w.requestAnimationFrame || w.setImmediate || function(c) { return setTimeout(c, 0); };
 
   function initEl(el) {
@@ -140,5 +157,5 @@
   SimpleScrollbar.initEl = initEl;
   SimpleScrollbar.initAll = initAll;
 
-  w.SimpleScrollbar = SimpleScrollbar;
-})(window, document);
+  return SimpleScrollbar;
+}));
