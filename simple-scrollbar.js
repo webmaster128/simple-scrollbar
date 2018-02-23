@@ -118,20 +118,9 @@
     this.wrapper.addEventListener('scroll', this.updateScrollBarVerticalPosition.bind(this));
     this.updateScrollBarVerticalPosition();
 
-    // container needs an explicit CSS height rule in order to allow child
-    // elements to specify their height in percentages. We need this for
-    // .ss-native-scrolling-wrapper, which is of height 100%.
-    //
-    // Since we do not know if a CSS height rule exists, we always create one.
-    var computedHeight = w.getComputedStyle(container).getPropertyValue("height");
-    var computedMaxHeight = w.getComputedStyle(container).getPropertyValue("max-height");
-    if (computedHeight) {
-      // Convert computed height into CSS height rule
-      container.style.height = computedHeight;
-    } else if (computedMaxHeight) {
-      container.style.height = computedMaxHeight;
-    } else {
-      // Uff, no idea how to set the height. This will probably case problems.
+    var css = w.getComputedStyle(container);
+  	if (css['height'] === '0px' && css['max-height'] !== '0px') {
+    	container.style.height = css['max-height'];
     }
   }
 
