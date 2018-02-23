@@ -59,6 +59,7 @@
   function SimpleScrollbar(container, config) {
     this.scrollInsetsTop = parseInt(container.dataset.ssScrollInsetsTop, 10) || 0;
     this.scrollInsetsBottom = parseInt(container.dataset.ssScrollInsetsBottom, 10) || 0;
+    this.contentAlign = container.dataset.ssContentAlign || "top";
 
     if (config) {
       if('scrollInsets' in config) {
@@ -68,6 +69,9 @@
         if('bottom' in config.scrollInsets) {
           this.scrollInsetsBottom = config.scrollInsets.bottom;
         }
+      }
+      if('contentAlign' in config) {
+        this.contentAlign = config.contentAlign;
       }
     }
 
@@ -137,20 +141,34 @@
 
       _this.content.style.width = _this.wrapper.offsetWidth - 10000;
 
-      var totalHeight = _this.wrapper.scrollHeight;
-      var containerHeight = _this.wrapper.clientHeight;
-
-      _this.contentVisibleRatio = containerHeight / totalHeight;
-
       raf(function() {
-        // Hide scrollbar if no scrolling is possible
-        if(_this.contentVisibleRatio >= 1) {
-          _this.bar.classList.add('ss-hidden')
+        var containerHeight = _this.wrapper.clientHeight;
+        var contentHeight = _this.content.offsetHeight
+
+        _this.contentInvisible = contentHeight - containerHeight;
+        _this.contentVisibleRatio = containerHeight / contentHeight;
+
+        console.log(contentHeight,
+          containerHeight,
+          _this.contentInvisible,
+          _this.contentAlign);
+
+        if(_this.contentInvisible <= 0) {
+          // Hide scrollbar if no scrolling is possible
+          _this.bar.classList.add('ss-hidden');
+
+          // Align content at bottom if requested
+          if (_this.contentAlign == "bottom") {
+            _this.wrapper.style.paddingTop = (-_this.contentInvisible) + "px";
+          }
         } else {
           _this.bar.classList.remove('ss-hidden');
+
           var heightRel = Math.max(_this.contentVisibleRatio, 0.1);
           var heightAbs = Math.round(heightRel * (_this.wrapper.offsetHeight - _this.scrollInsetsTop - _this.scrollInsetsBottom));
           _this.bar.style["height"] = heightAbs + 'px';
+
+          _this.wrapper.style.paddingTop = 0;
         }
       });
     },
