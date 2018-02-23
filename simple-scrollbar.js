@@ -18,14 +18,6 @@
 
   var raf = w.requestAnimationFrame || w.setImmediate || function(c) { return setTimeout(c, 0); };
 
-  function init(el, config) {
-    if (Object.prototype.hasOwnProperty.call(el, 'data-simple-scrollbar')) return;
-
-    var out = new SimpleScrollbar(el, config);
-    Object.defineProperty(el, 'data-simple-scrollbar', out);
-    return out;
-  }
-
   // Mouse drag handler
   function dragDealer(el, context) {
     var lastPageY;
@@ -167,17 +159,23 @@
     }
   }
 
-  function initAll() {
+  SimpleScrollbar.init = function(el, config) {
+    if (Object.prototype.hasOwnProperty.call(el, 'data-simple-scrollbar')) return;
+
+    var out = new SimpleScrollbar(el, config);
+    Object.defineProperty(el, 'data-simple-scrollbar', out);
+    return out;
+  };
+
+  SimpleScrollbar.initAll = function() {
     var nodes = d.querySelectorAll('.ss-container');
 
     for (var i = 0; i < nodes.length; i++) {
-      init(nodes[i]);
+      SimpleScrollbar.init(nodes[i]);
     }
-  }
+  };
 
-  d.addEventListener('DOMContentLoaded', initAll);
-  SimpleScrollbar.init = init;
-  SimpleScrollbar.initAll = initAll;
+  d.addEventListener('DOMContentLoaded', SimpleScrollbar.initAll);
 
   return SimpleScrollbar;
 }));
