@@ -86,24 +86,19 @@
     this.content = d.createElement('div');
     this.content.setAttribute('class', 'ss-content');
 
-    this.wrapper.appendChild(this.content);
-
     var customScrollingContentContainer = container.querySelector(".ss-scrolling");
     if (customScrollingContentContainer) {
-      // Move everything from .ss-scrolling into .ss-content
-      while (customScrollingContentContainer.firstChild) {
-        this.content.appendChild(customScrollingContentContainer.firstChild);
-      }
-      // Add wrapper into .ss-content
-      customScrollingContentContainer.appendChild(this.wrapper);
+      // Move .ss-scrolling into .ss-content
+      this.content.appendChild(customScrollingContentContainer);
     } else {
       // Move everything from .ss-container into .ss-content
       while (container.firstChild) {
         this.content.appendChild(container.firstChild);
       }
-      // Add wrapper into .ss-container
-      container.appendChild(this.wrapper);
     }
+
+    this.wrapper.appendChild(this.content);
+    container.appendChild(this.wrapper);
 
     this.bar = d.createElement('div');
     this.bar.setAttribute('class', 'ss-scrollbar');
@@ -138,8 +133,11 @@
 
           // Align content at bottom if requested
           if (_this.contentAlign == "bottom") {
-            _this.wrapper.style.paddingTop = (-_this.contentInvisible) + "px";
+            _this.content.style.marginTop = (-_this.contentInvisible) + "px";
           }
+
+          // avoid scroll effect when content equals element height
+          _this.wrapper.style.overflowY = "hidden";
         } else {
           _this.bar.classList.remove('ss-hidden');
 
@@ -147,7 +145,9 @@
           var heightAbs = Math.round(heightRel * (_this.wrapper.offsetHeight - _this.scrollInsetsTop - _this.scrollInsetsBottom));
           _this.bar.style["height"] = heightAbs + 'px';
 
-          _this.wrapper.style.paddingTop = 0;
+          _this.content.style.marginTop = 0;
+
+          _this.wrapper.style.overflowY = "auto";
         }
       });
     },
