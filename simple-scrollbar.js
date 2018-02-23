@@ -117,11 +117,6 @@
 
     this.wrapper.addEventListener('scroll', this.updateScrollBarVerticalPosition.bind(this));
     this.updateScrollBarVerticalPosition();
-
-    var css = w.getComputedStyle(container);
-  	if (css['height'] === '0px' && css['max-height'] !== '0px') {
-    	container.style.height = css['max-height'];
-    }
   }
 
   SimpleScrollbar.prototype = {
@@ -136,11 +131,6 @@
 
         _this.contentInvisible = contentHeight - containerHeight;
         _this.contentVisibleRatio = containerHeight / contentHeight;
-
-        console.log(contentHeight,
-          containerHeight,
-          _this.contentInvisible,
-          _this.contentAlign);
 
         if(_this.contentInvisible <= 0) {
           // Hide scrollbar if no scrolling is possible

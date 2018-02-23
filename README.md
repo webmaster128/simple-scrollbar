@@ -50,6 +50,12 @@ If you want to manually turn your div in a SimpleScrollbar, you can use the `Sim
 </script>
 ```
 
+### Preconditions
+
+The container must meet the following conditions:
+
+1. CSS height rule must be set. Setting `max-height` only is not sufficient.
+
 ### Dynamically added content
 If you use some client Framework, like Angular, Aurelia, etc - or any library that includes DOMElements dynamically in your app, and you want to use the SimpleScrollbar `ss-container` attribute, you can use the `SimpleScrollbar.initAll` method, and it will turn all the elements with that attribute in a scrollable one for you.
 
