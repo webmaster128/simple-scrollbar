@@ -40,7 +40,6 @@
 
   // Constructor
   function SimpleScrollbar(container) {
-    console.log(container.dataset)
     this.scrollInsetsTop = parseInt(container.dataset.ssScrollInsetsTop, 10) || 0;
     this.scrollInsetsBottom = parseInt(container.dataset.ssScrollInsetsBottom, 10) || 0;
 
