@@ -88,5 +88,52 @@ dynamically, call `updateLayout()`:
 </script>
 ```
 
+## Notes for Angular users
+
+1. In order to prevent Angular from doing change detection after every scroll movement,
+we need to manually initialize outside of Angular
+([read why](https://netbasal.com/angular-2-escape-from-change-detection-317b3b44906b)).
+
+```html
+<div #scrollMe><!-- no auto-binding here! -->
+  <!-- ... -->
+</div>
+```
+
+```typescript
+// ...
+export class ConversationComponent implements OnInit {
+  @ViewChild('scrollMe') private myScrollContainer: ElementRef;
+
+  // ...
+
+  constructor(private ngZone: NgZone) {
+    // ...
+  }
+
+  ngOnInit() {
+    this.ngZone.runOutsideAngular(() => {
+      simplescroll.init(this.myScrollContainer.nativeElement);
+    });
+  }
+}
+```
+
+2. Adding the CSS file to a component's `styleUrls` does not work because style rules then get a component scope restriction that does not work with elements we create dynamically. Instead, add to `styles` list in .angular-cli.json, e.g.
+
+```
+{
+  // ...
+  "apps": [
+    {
+      // ...
+      "styles": [
+        // ...
+        "../node_modules/simple-scrollbar/simple-scrollbar.css"
+      ]
+    }
+  ]
+}
+```
 ## Credits
 Inspired by yairEO's jQuery plugin ([fakescroll](https://github.com/yairEO/fakescroll))
