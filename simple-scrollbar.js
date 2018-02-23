@@ -18,9 +18,9 @@
 
   var raf = w.requestAnimationFrame || w.setImmediate || function(c) { return setTimeout(c, 0); };
 
-  function initEl(el) {
+  function initEl(el, config) {
     if (Object.prototype.hasOwnProperty.call(el, 'data-simple-scrollbar')) return;
-    Object.defineProperty(el, 'data-simple-scrollbar', new SimpleScrollbar(el));
+    Object.defineProperty(el, 'data-simple-scrollbar', new SimpleScrollbar(el, config));
   }
 
   // Mouse drag handler
@@ -56,9 +56,20 @@
   }
 
   // Constructor
-  function SimpleScrollbar(container) {
+  function SimpleScrollbar(container, config) {
     this.scrollInsetsTop = parseInt(container.dataset.ssScrollInsetsTop, 10) || 0;
     this.scrollInsetsBottom = parseInt(container.dataset.ssScrollInsetsBottom, 10) || 0;
+
+    if (config) {
+      if('scrollInsets' in config) {
+        if('top' in config.scrollInsets) {
+          this.scrollInsetsTop = config.scrollInsets.top;
+        }
+        if('bottom' in config.scrollInsets) {
+          this.scrollInsetsBottom = config.scrollInsets.bottom;
+        }
+      }
+    }
 
     container.classList.add("ss-container"); // may not be set in manual bindings
 
