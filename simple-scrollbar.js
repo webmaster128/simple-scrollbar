@@ -107,8 +107,10 @@
         if(_this.contentVisibleRatio >= 1) {
           _this.bar.classList.add('ss-hidden')
         } else {
-          _this.bar.classList.remove('ss-hidden')
-          _this.bar.style["height"] = Math.max(_this.contentVisibleRatio * 100, 10) + '%';
+          _this.bar.classList.remove('ss-hidden');
+          var heightRel = Math.max(_this.contentVisibleRatio, 0.1);
+          var heightAbs = Math.round(heightRel * (_this.wrapper.offsetHeight - _this.scrollInsetsTop - _this.scrollInsetsBottom));
+          _this.bar.style["height"] = heightAbs + 'px';
         }
       });
     },
