@@ -135,6 +135,7 @@ function appendContent() {
   newContent.innerHTML = "More text";
   element.querySelector(".content-holder").appendChild(newContent);
   scrollbar.update();
+  scrollbar.scrollToBottom();
 }
 
 for (var i = 1; i < 10; ++i) {

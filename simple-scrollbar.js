@@ -160,7 +160,15 @@
     update: function() {
       this.updateLayout();
       this.updateScrollBarVerticalPosition();
-    }
+    },
+    scrollToTop: function() {
+      this.wrapper.scrollTop = 0;
+    },
+    scrollToBottom: function() {
+      // scrollHeight is more than the bottom scroll position,
+      // but browser will scroll to the end and ignore additional pixels
+      this.wrapper.scrollTop = this.wrapper.scrollHeight;
+    },
   }
 
   SimpleScrollbar.init = function(el, config) {
