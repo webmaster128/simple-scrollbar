@@ -12,11 +12,6 @@
   width: calc(100% + 10000px);
   height: 100%;
   position: relative;
-}
-
-.ss-content {
-  padding: 0 0 0 0;
-  position: relative;
   box-sizing: border-box;
 }
 
