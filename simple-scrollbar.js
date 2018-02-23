@@ -113,7 +113,7 @@
     updateLayout: function(e) {
       var _this = this;
 
-      _this.content.style.width = _this.wrapper.offsetWidth - 10000;
+      _this.content.style.width = (_this.wrapper.offsetWidth - 10000) + "px";
 
       raf(function() {
         var containerHeight = _this.wrapper.clientHeight;
