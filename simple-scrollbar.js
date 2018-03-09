@@ -55,6 +55,7 @@
     this.scrollInsetsTop = parseInt(container.dataset.ssScrollInsetsTop, 10) || 0;
     this.scrollInsetsBottom = parseInt(container.dataset.ssScrollInsetsBottom, 10) || 0;
     this.contentAlign = container.dataset.ssContentAlign || "top";
+    this.color = container.dataset.ssColor || "rgba(0, 0, 0, 0.2)";
 
     if (config) {
       if('scrollInsets' in config) {
@@ -67,6 +68,9 @@
       }
       if('contentAlign' in config) {
         this.contentAlign = config.contentAlign;
+      }
+      if('color' in config) {
+        this.color = config.color;
       }
     }
 
@@ -114,6 +118,7 @@
       var _this = this;
 
       _this.content.style.width = (_this.wrapper.offsetWidth - 10000) + "px";
+      _this.bar.style["backgroundColor"] = _this.color;
 
       raf(function() {
         var containerHeight = _this.wrapper.clientHeight;

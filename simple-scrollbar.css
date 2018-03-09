@@ -17,7 +17,6 @@
 
 .ss-scrollbar {
   position: absolute;
-  background: rgba(0, 0, 0, 0.1);
   width: 9px;
   border-radius: 4px;
   top: 0;
