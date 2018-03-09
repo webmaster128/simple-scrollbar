@@ -19,16 +19,30 @@
   }
   section {
     float: left;
-    background-color: white;
     width: 150px;
-    height: 250px;
+    height: 300px;
     margin: 25px;
     position: relative;
     font-size: 16px;
     line-height: 1.4em;
   }
-  section.justified { text-align: justify; }
-  section.rightpadded { padding-right: 20px; }
+  section > header {
+    height: 40px;
+    padding: 5px;
+    line-height: 15px;
+    font-size: 13px;
+    text-align: center;
+    background-color: #101094;
+    color: white;
+    margin-bottom: 10px;
+    border-radius: 4px;
+  }
+  section > div {
+    height: 250px;
+    background-color: white;
+  }
+  .justified { text-align: justify; }
+  .rightpadded { padding-right: 20px; }
   p:first-child { margin-top: 0; }
   p:last-child { margin-bottom: 0; }
   .top-bar {
@@ -55,118 +69,150 @@
 </head>
 <body>
 
-<section class="ss-container">
-  <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-</section>
-<section class="ss-container justified">
-  <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-</section>
-<section class="ss-container rightpadded">
-  <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-</section>
-
-<!-- Manual binding -->
-<section id="my-container">
-  <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-</section>
-<script>SimpleScrollbar.init(document.querySelector('#my-container'));</script>
-
-<!-- Manual binding with config -->
-<section id="my-configured-container">
-  <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-</section>
-<script>
-SimpleScrollbar.init(document.querySelector('#my-configured-container'), {
-  scrollInsets: {
-    top: 5,
-    bottom: 20,
-  }
-});
-</script>
-
-<!-- very long, hits minium scroll bar size -->
-<section class="ss-container">
-  <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-  <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-  <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
-  <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-  <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.</p>
-  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</p>
-  <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-  <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-  <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
-  <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-  <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.</p>
-  <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</p>
-</section>
-
-<!-- right to left -->
-<section class="ss-container" style="direction: rtl">
-  <!-- random paragraphs from the source code of https://ar.wikipedia.org/wiki/%D8%B5%D8%B1%D8%A7%D8%B9_%D8%A7%D9%84%D8%B9%D8%B1%D9%88%D8%B4 -->
-  <p>تقع أحداث السلسلة في قارّتين خياليتين هما ويستروس وإيسوس في نهاية صيف طويل جداً أمتدّ لعقد قبل بداية أحداثِ الجُزء الأوّل، وقد وُحّدت الممالك السَبع في قارّة ويستروس تحت راية آل تاغاريان. تبدأ أحداث الرواية الأوّلى&#160;<i>صراع العروش</i>&#160;بعدَ 155 عاماً من مقتل آخر حُكّام آل تاغاريان ونفي ذُرّيته إلى القارة إيسوس، وتنصيب روبرت براثيون حاكِماً للممالك&#160; السَبع، وهناك ثلاث مسارات أساسيّة وسائدة في الروايات:</p>
-  <p>المسار الأوّل من القصّة يحكي الصراعَ على سُلطةِ العرش الحديدي القائمَ بعد وفاة الملك روبرت براثيون، يستلم جوفري ابن روبرت الحُكمَ بعده بدعم من عائلتة والدته آل لانستر ويعيث في الأرض الفساد. اللورد إدارد ستارك مُساعد الملك الأوّل يقومُ بالبحث حول حقيقة وفاة روبرت براثيون فيكتشفُ أنّ جوفري وإخوته أولادُ زِنا من والدته سيرسي لانستر وشقيقها جايمي لانستر وينتشر الخبر في أرجاء ويستروس فيعُدم إدارد بتُهمةِ الخيانة. فتبدأ بعضُ المناطق بالانفصالِ عن المملكة حيثُ أعلن الأبن الأكبر لإدارد ستارك الذي يُدعى روب ستارك بانفصاله وأنه ملك الأراضي الشماليّة، بالإضافة إلى بالون جريجوي أسس مملكةً مُستقلّةً في منطقته في جُزر الحديد، وقد سُمّيت بحرب الملوك الخمسة في الرواية الثانية&#160;<i>حروب الملوك</i>.</p>
-  <p>يحكي المسار الثاني الأحداثَ الواقعة في الشّمالِ حيثُ المناطقُ هناك دائماً صقيعيّة، حيثُ أن الجدار الشماليّ حمى ويستروس لأكثرَ من ثمانية آلاف سنة حماها من "الآخرين". عند الجدارِ الشماليّ هُناك ما يُعرف بـ حُرّاس الليل ومهمّتهم هي حماية القارة ويستروس من أيّ هجومٍ من قِبَلِ "الهمج" الذين يعيشون بحريّة هُناك. تُسلَّطُ القصة في الجدار على جون سنو وهو ابن إدارد ستارك الغير شرعي والذي انضمّ إلى الحرس بعد ما كانَ يعيشُ في القلعة.</p>
-  <p>يتتبّع المسار الثالث قصّة دينريس تاغارين ابنةَ الملك المقتول وآخر سلالةٍ من آل تاغارين، حيثُ تُحاول استرداد العرشِ المسلوبِ منها وذلك بشرائها جيشاً من العبيد بالإضافة إلى ثلاثةِ تنانين أُعطِيَتهم كهديّة لزفافها وزواجها من قائدِ قبيلة الدوثروكي.</p>
-</section>
-
-<!-- with custom scrolling container -->
-<section class="ss-container">
-  <div class="ss-scrolling">
+<section>
+  <header>basic</header>
+  <div class="ss-container">
     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
   </div>
 </section>
 
-<!-- short, default alignment -->
-<section class="ss-container">
-  <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</p>
-</section>
-
-<!-- changing content -->
-<section id="my-changing-content-container">
-  <div class="content-holder">
-    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</p>
-  </div>
-</section>
-<script>
-var element = document.querySelector('#my-changing-content-container');
-var scrollbar = SimpleScrollbar.init(element);
-
-function appendContent() {
-  console.log("Append!");
-  var newContent = document.createElement('p');
-  newContent.innerHTML = "More text";
-  element.querySelector(".content-holder").appendChild(newContent);
-  scrollbar.update();
-  scrollbar.scrollToBottom();
-}
-
-for (var i = 1; i < 10; ++i) {
-  setTimeout(appendContent, i * 1000);
-}
-</script>
-
-<!-- bottom aligned scroll content (short) -->
-<section class="ss-container" data-ss-content-align="bottom">
-  <div class="ss-scrolling">
-    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</p>
-  </div>
-</section>
-
-<!-- bottom aligned scroll content (long) -->
-<section class="ss-container" data-ss-content-align="bottom">
-  <div class="ss-scrolling">
+<section>
+  <header>justified text</header>
+  <div class="ss-container justified">
     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
   </div>
 </section>
 
-<section class="ss-container" data-ss-scroll-insets-top="40" data-ss-scroll-insets-bottom="20">
-  <div class="ss-scrolling">
+<section>
+  <header>padding right</header>
+  <div class="ss-container rightpadded">
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+  </div>
+</section>
+
+<section>
+  <header>manual binding</header>
+  <div id="my-container">
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+  </div>
+  <script>SimpleScrollbar.init(document.querySelector('#my-container'));</script>
+</section>
+
+<section>
+  <header>manual binding with config</header>
+  <div id="my-configured-container">
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+  </div>
+  <script>
+  SimpleScrollbar.init(document.querySelector('#my-configured-container'), {
+    scrollInsets: {
+      top: 5,
+      bottom: 20,
+    }
+  });
+  </script>
+</section>
+
+<section>
+  <header>very long, hits minium scroll bar size</header>
+  <div class="ss-container">
     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
     <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
     <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+    <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+    <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.</p>
+    <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</p>
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+    <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+    <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+    <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+    <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.</p>
+    <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</p>
   </div>
-  <div class="top-bar">The title</div>
-  <div class="bottom-bar">Copyright Example Inc.</div>
+</section>
+
+<section>
+  <header>right to left</header>
+  <div class="ss-container" style="direction: rtl">
+    <!-- random paragraphs from the source code of https://ar.wikipedia.org/wiki/%D8%B5%D8%B1%D8%A7%D8%B9_%D8%A7%D9%84%D8%B9%D8%B1%D9%88%D8%B4 -->
+    <p>تقع أحداث السلسلة في قارّتين خياليتين هما ويستروس وإيسوس في نهاية صيف طويل جداً أمتدّ لعقد قبل بداية أحداثِ الجُزء الأوّل، وقد وُحّدت الممالك السَبع في قارّة ويستروس تحت راية آل تاغاريان. تبدأ أحداث الرواية الأوّلى&#160;<i>صراع العروش</i>&#160;بعدَ 155 عاماً من مقتل آخر حُكّام آل تاغاريان ونفي ذُرّيته إلى القارة إيسوس، وتنصيب روبرت براثيون حاكِماً للممالك&#160; السَبع، وهناك ثلاث مسارات أساسيّة وسائدة في الروايات:</p>
+    <p>المسار الأوّل من القصّة يحكي الصراعَ على سُلطةِ العرش الحديدي القائمَ بعد وفاة الملك روبرت براثيون، يستلم جوفري ابن روبرت الحُكمَ بعده بدعم من عائلتة والدته آل لانستر ويعيث في الأرض الفساد. اللورد إدارد ستارك مُساعد الملك الأوّل يقومُ بالبحث حول حقيقة وفاة روبرت براثيون فيكتشفُ أنّ جوفري وإخوته أولادُ زِنا من والدته سيرسي لانستر وشقيقها جايمي لانستر وينتشر الخبر في أرجاء ويستروس فيعُدم إدارد بتُهمةِ الخيانة. فتبدأ بعضُ المناطق بالانفصالِ عن المملكة حيثُ أعلن الأبن الأكبر لإدارد ستارك الذي يُدعى روب ستارك بانفصاله وأنه ملك الأراضي الشماليّة، بالإضافة إلى بالون جريجوي أسس مملكةً مُستقلّةً في منطقته في جُزر الحديد، وقد سُمّيت بحرب الملوك الخمسة في الرواية الثانية&#160;<i>حروب الملوك</i>.</p>
+    <p>يحكي المسار الثاني الأحداثَ الواقعة في الشّمالِ حيثُ المناطقُ هناك دائماً صقيعيّة، حيثُ أن الجدار الشماليّ حمى ويستروس لأكثرَ من ثمانية آلاف سنة حماها من "الآخرين". عند الجدارِ الشماليّ هُناك ما يُعرف بـ حُرّاس الليل ومهمّتهم هي حماية القارة ويستروس من أيّ هجومٍ من قِبَلِ "الهمج" الذين يعيشون بحريّة هُناك. تُسلَّطُ القصة في الجدار على جون سنو وهو ابن إدارد ستارك الغير شرعي والذي انضمّ إلى الحرس بعد ما كانَ يعيشُ في القلعة.</p>
+    <p>يتتبّع المسار الثالث قصّة دينريس تاغارين ابنةَ الملك المقتول وآخر سلالةٍ من آل تاغارين، حيثُ تُحاول استرداد العرشِ المسلوبِ منها وذلك بشرائها جيشاً من العبيد بالإضافة إلى ثلاثةِ تنانين أُعطِيَتهم كهديّة لزفافها وزواجها من قائدِ قبيلة الدوثروكي.</p>
+  </div>
+</section>
+
+<section>
+  <header>with custom scrolling container</header>
+  <div class="ss-container">
+    <div class="ss-scrolling">
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <header>short, default alignment</header>
+  <div class="ss-container">
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</p>
+  </div>
+</section>
+
+<section>
+  <header>changing content</header>
+  <div id="my-changing-content-container">
+    <div class="content-holder">
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</p>
+    </div>
+  </div>
+  <script>
+  var element = document.querySelector('#my-changing-content-container');
+  var scrollbar = SimpleScrollbar.init(element);
+
+  function appendContent() {
+    console.log("Append!");
+    var newContent = document.createElement('p');
+    newContent.innerHTML = "More text";
+    element.querySelector(".content-holder").appendChild(newContent);
+    scrollbar.update();
+    scrollbar.scrollToBottom();
+  }
+
+  for (var i = 1; i < 10; ++i) {
+    setTimeout(appendContent, i * 1000);
+  }
+  </script>
+</section>
+
+<section>
+  <header>bottom aligned scroll content (short)</header>
+  <div class="ss-container" data-ss-content-align="bottom">
+    <div class="ss-scrolling">
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <header>bottom aligned scroll content (long)</header>
+  <div class="ss-container" data-ss-content-align="bottom">
+    <div class="ss-scrolling">
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <header>insets</header>
+  <div class="ss-container" data-ss-scroll-insets-top="40" data-ss-scroll-insets-bottom="20">
+    <div class="ss-scrolling">
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+      <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+      <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+    </div>
+    <div class="top-bar">The title</div>
+    <div class="bottom-bar">Copyright Example Inc.</div>
+  </div>
 </section>
 
 </body>
